@@ -1,6 +1,6 @@
 <?php
 namespace Home\Controller;
-use Org\Util\String;
+use Org\Util\StringUtil;
 use Think\Exception;
 use Think\Model;
 
@@ -192,8 +192,12 @@ class IndexController extends BaseController {
     }
     //班级排名
     public function claRank() {
-        $model = new Model();
-        $row = $model->query("select class as classes , college from(select sum(score) as sums, class , college from users where class is not null group by class) as temp order by sums desc limit 0,10");
+	try {    
+        $model = M('users');
+	$row = $model->query("select classes, college from (select sum(score) as sums, class as classes, college from users where class is not null group by class, college) as temp order by sums desc limit 0, 10");
+	} catch(\Exception $e) {
+		echo $e->getMessage();
+	}
         $this->ajaxReturn($row);
     }
 
@@ -223,7 +227,7 @@ class IndexController extends BaseController {
     }
 
     public function JSSDKSignature(){
-        $string = new String();
+        $string = new StringUtil();
         $jsapi_ticket =  $this->getTicket();
         $data['jsapi_ticket'] = $jsapi_ticket['data'];
         $data['noncestr'] = $string->randString();

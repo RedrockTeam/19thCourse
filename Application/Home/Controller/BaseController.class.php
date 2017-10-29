@@ -4,7 +4,7 @@ use Think\Controller;
 use Think\Model;
 
 class BaseController extends Controller {
-    public function _initialize(){
+     public function _initialize(){
         header('Access-Control-Allow-Origin: *');
         if (APP_DEBUG) {
             $openid = 'ouRCyjpYbjwuHt2n7CjpOPnh0Sp2c';//session('openid');//
@@ -18,7 +18,7 @@ class BaseController extends Controller {
             $nickname = urldecode(I('get.nickname'));//'知识混子周政';//
         }
         if (!$openid  || !$nickname) {
-            $uri = 'http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/oauth&redirect='.urlencode('https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+            $uri = '//wx.idsbllp.cn/MagicLoop/index.php?s=/addon/Api/Api/oauth&redirect='.urlencode('https://'.$_SERVER['HTTP_HOST'].'/game'.$_SERVER['REQUEST_URI']);
             redirect($uri);
         }
         session('openid', $openid);
@@ -90,7 +90,7 @@ class BaseController extends Controller {
     /*从接口获取学生信息*/
     protected function stuInfo() {
         $openid = session('openid');
-        $url = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/UserCenter/UserCenter/getStuInfoByOpenId&openId=".$openid;
+        $url = "https://wx.idsbllp.cn/MagicLoop/index.php?s=/addon/UserCenter/UserCenter/getStuInfoByOpenId&openId=".$openid;
         $res =  $this->curl_api($url);
         return $res;
     }

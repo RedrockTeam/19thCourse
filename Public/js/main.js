@@ -7,20 +7,20 @@ $(document).on("pageshow","#backPage",function(){
 $(document).on("pageshow","#listPage",function(){
     $('.beginImg').removeClass('pulse');
 });
-var question_link = "/19thCourse/index.php/Home/Index/questions";
-var rank_link = "/19thCourse/index.php/Home/Index/morerank";
-var link_rank = "/19thCourse/index.php/Home/Index/rank";
-var check_link = "/19thCourse/index.php/Home/Index/stuStatus";
-var clarank_link = "/19thCourse/index.php/Home/Index/claRank";
+var question_link = "./index.php/Home/Index/questions";
+var rank_link = "./index.php/Home/Index/morerank";
+var link_rank = "./index.php/Home/Index/rank";
+var check_link = "./index.php/Home/Index/stuStatus";
+var clarank_link = "./index.php/Home/Index/claRank";
 function loadImgs(b, g) {
     var f = {};
     var d = 0;
     for (var e = 0; e < b.length; e++) {
         var h = new Image();
         if(b[e] == 'startPage_back'){
-            h.src = "/19thCourse/Public/images/" + b[e] +".jpg";
+            h.src = "./Public/images/" + b[e] +".jpg";
         }else{
-            h.src = "/19thCourse/Public/images/" + b[e] +".png";
+            h.src = "./Public/images/" + b[e] +".png";
         }
         var c = b[e].split(".")[0];
         h.onload = function () {

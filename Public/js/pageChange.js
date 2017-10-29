@@ -140,12 +140,12 @@ $(function () {
         });
     });
 
-    // var link_ranks = "http://localhost/19thCourse/index.php/home/index/test";
+    // var link_ranks = "./index.php/home/index/test";
     $('.classRankBtn').on('click',function(){
         // $.mobile.loading('show');
         function GetData() {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "http://localhost/19thCourse/index.php/home/index/stustatus", true); //用ajax 发送get请求
+            xhr.open("GET", "./index.php/home/index/stustatus", true); //用ajax 发送get请求
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var resData = JSON.parse(xhr.responseText);
@@ -170,7 +170,7 @@ $(function () {
 
                     // arr = JSON.parse(xhr.responseText);
                     var xhra = new XMLHttpRequest();
-                    xhra.open("GET", "http://localhost/19thCourse/index.php/home/index/claRank", true); //用ajax 发送get请求arr = xhra.responseText;
+                    xhra.open("GET", "./index.php/home/index/claRank", true); //用ajax 发送get请求arr = xhra.responseText;
                     xhra.send(null);
                     xhra.onreadystatechange = function() {
                         if (xhra.readyState == 4 && xhra.status == 200) {
