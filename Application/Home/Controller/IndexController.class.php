@@ -1,6 +1,7 @@
 <?php
 namespace Home\Controller;
 use Org\Util\String;
+use Think\Exception;
 use Think\Model;
 
 class IndexController extends BaseController {
@@ -70,7 +71,6 @@ class IndexController extends BaseController {
             $currentData['today_group_count'] = 0;
 //            $currentData['today_learn_id'] = json_encode(array());
         }
-
         //检查学习题目上限
         if ($currentData['today_group_count'] == 2) {
             $this->ajaxReturn(array(
@@ -78,7 +78,6 @@ class IndexController extends BaseController {
                 'error'  => '每天最多只能学两组课程'
             ));
         }
-
         //请求新题目时检查时间是否满足
         if (time() - $currentData['time'] < 6) {
             $this->ajaxReturn(array(
@@ -86,9 +85,7 @@ class IndexController extends BaseController {
                 'error'   => '学习时间未满'
             ));
         }
-
         $currentData['today_learn_id'] = json_decode($currentData['today_learn_id']);
-
         //检查是否依次学习, 可以学习学过的
         if (!$this->isIdLearn($lesson_id, $currentData['today_learn_id'])) {
             if ($lesson_id != 0 && count($currentData['today_learn_id']) > 0) {
@@ -107,16 +104,14 @@ class IndexController extends BaseController {
                 }
             } else {
                 if ($lesson_id > 1 && count($currentData['today_learn_id']) > 0) {
-                 $this->ajaxReturn(array(
+                    $this->ajaxReturn(array(
                         'status' => 405,
                         'data' => 1,
                         'error' => '您不能学习该课程'
-                 ));
-                }  
+                    ));
+                }
             }
         }
-
-
         if ($lesson_id != 0) {
             $currentData['question_id'] = $lesson_id;
             $question = $questions->where(array('id' => $lesson_id))->find();
@@ -131,7 +126,6 @@ class IndexController extends BaseController {
         }
         $k = 2 - $num < 0 ? 0 : 2 - $num;
         $k = $k/2;
-
         $currentData['today_learn_id'] = json_encode($currentData['today_learn_id']);
         $currentData['current'] = $question['id']%3 == 0 ? 3:$question['id']%3;
         $current = $currentData['current'];
@@ -173,7 +167,7 @@ class IndexController extends BaseController {
         $model = new Model();
         $row = $model->query("select * from (select *, (@rank := @rank + 1)rank from (select openid from users order by score desc, costtime asc)t, (select @rank := 0)a)b WHERE openid='$openid'");
         $rank = $row[0]['rank'];
-//        $list = $users->order('score desc')->field('nickname, imgurl, score')->limit(10)->select();
+        //        $list = $users->order('score desc')->field('nickname, imgurl, score')->limit(10)->select();
 //        if ($rank <= 50) {
 //            $real = $users->order('score desc')->field('nickname, imgurl, score')->limit(50)->select();
 //        }
@@ -182,9 +176,9 @@ class IndexController extends BaseController {
 //                $rank = $key+1;
 //            }
 //        }
-        if ($user['days'] == 0) {
-            $rank = '∞';
-        }
+//        if ($user['days'] == 0) {
+//            $rank = '∞';
+//        }
         $this->ajaxReturn(array(
             'status' => 200,
             'data'   => array(
@@ -195,6 +189,12 @@ class IndexController extends BaseController {
                 'groups' => $user['count']
             )
         ));
+    }
+    //班级排名
+    public function claRank() {
+        $model = new Model();
+        $row = $model->query("select class as classes , college from(select sum(score) as sums, class , college from users where class is not null group by class) as temp order by sums desc limit 0,10");
+        $this->ajaxReturn($row);
     }
 
     public function moreRank() {
@@ -244,20 +244,51 @@ class IndexController extends BaseController {
     }
 
 
-    /*curl通用函数*/
-    private function curl_api($url, $data=''){
-        // 初始化一个curl对象
-        $ch = curl_init();
-        curl_setopt ( $ch, CURLOPT_URL, $url );
-        curl_setopt ( $ch, CURLOPT_POST, 1 );
-        curl_setopt ( $ch, CURLOPT_HEADER, 0 );
-        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
-        // 运行curl，获取网页。
-        $contents = json_decode(curl_exec($ch), true);
-        // 关闭请求
-        curl_close($ch);
-        return $contents;
+    //返回学生状态
+    public function stuStatus() {
+        $users = M('users');
+        $openid = session('openid');
+        $user = $users->where(array('openid' => $openid))->find();
+        if ($user['usernumber'] != NULL) {
+            if ($user['college'] != NULL || $user['class'] != NULL) {
+                $this->ajaxReturn(array(
+                    'status' => 200,
+                    'error' => 'ok'
+                ));
+            } else {
+                $this->ajaxReturn(array(
+                    'status' => 300,
+                    'error'  => '仅供本科生使用此功能'
+                ));
+            }
+        } else {
+            $this->ajaxReturn(array(
+                'status' => 400,
+                'error'  => '未绑定'
+            ));
+        }
+//        $res = $this->stuInfo();
+//        $model = new Model();
+//        if ($res['status'] == 200) {
+//            $usernumber = $res['data']['usernumber'];
+//            $row = $model->query("select * from colleges where stuid = '$usernumber'");
+//            if($row) {
+//                $this->ajaxReturn(array(
+//                    'status' => 200,
+//                    'error' => 'ok'
+//                ));
+//            }else{
+//                $this->ajaxReturn(array(
+//                    'status' => 300,
+//                    'error'  => '仅供本科生使用此功能'
+//                ));
+//            }
+//        }else{
+//            $this->ajaxReturn(array(
+//                'status' => 400,
+//                'error'  => '未绑定'
+//            ));
+//        }
     }
 
     private function getTicket() {

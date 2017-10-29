@@ -571,11 +571,11 @@ body {
 
 }
 
-#classListPage .list_container .listNav .college{
+#classListPage .list_container .listNav .colleges{
   float: left;
 }
 
-#classListPage .list_container .listNav .classes{
+#classListPage .list_container .listNav .classes_1{
   display: initial;
 }
 
@@ -592,7 +592,10 @@ body {
 }
 
 #classListPage .list_container .list_ranks  .classRank{
+  font-family: tx;
   float: right;
+  font-size: 14px;
+  margin-right: 4.5%;
 }
 
 
@@ -616,7 +619,7 @@ body {
   width: 100%;
 }
 
-#classListPage .list_container .rank_list .list_ranks span{
+#classListPage .list_container .rank_list .list_ranks p{
   color: #eb6b0a;
   font-size: 12px;
   text-align: center;
@@ -643,7 +646,7 @@ body {
   margin-top: 1%;
 }
 
-#classListPage #warning {
+#listPage #warning {
   display: none;
   width: 100%;
   height: 100%;
@@ -654,37 +657,33 @@ body {
 
 }
 
-#classListPage .closeBtn {
+#listPage .closeBtn {
   float: right;
   width: 10%;
-  margin-top: 18%;
+  margin-top: 29%;
   margin-right: 5%;
 }
 
-#classListPage .warning_img{
+#listPage .warning_img{
   width: 60%;
   margin-left: 20%;
-  margin-top: 20%;
+  margin-top: 32%;
 }
 
-#classListPage #warningbox {
+#listPage #warningbox {
   background: url("../images/warningbox.png") center no-repeat;
   position:absolute;
-  margin-left: -40%;
-    margin-top: -45%;
     width: 80%;
-    height: 45%;
+    height: 60%;
     background-size: 100%;
-    left: 50%;
-    top: 50%;
-    /*top: 0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;*/
+    margin: auto;
 }
 
-#classListPage .warningWords {
+#listPage .warningWords {
   font-size: 18px;
     width: 90%;
     margin-left: 6.5%;
@@ -694,7 +693,7 @@ body {
    font-family: tx;
 }
 
-#classListPage 
+
 
 @media (max-width: 330px) {
   #backPage .background_content {

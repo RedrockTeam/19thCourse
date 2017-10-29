@@ -10,6 +10,8 @@ $(document).on("pageshow","#listPage",function(){
 var question_link = "/19thCourse/index.php/Home/Index/questions";
 var rank_link = "/19thCourse/index.php/Home/Index/morerank";
 var link_rank = "/19thCourse/index.php/Home/Index/rank";
+var check_link = "/19thCourse/index.php/Home/Index/stuStatus";
+var clarank_link = "/19thCourse/index.php/Home/Index/claRank";
 function loadImgs(b, g) {
     var f = {};
     var d = 0;

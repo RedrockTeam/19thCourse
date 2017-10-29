@@ -254,6 +254,13 @@
                     </ul>
                 </div>
             </div>
+            <div id="warning">
+                <div id="warningbox">
+                    <img class="closeBtn" src="./Public/images/closeBtn.png">
+                    <img class="warning_img" src="./Public/images/warning_img.png">
+                    <p class="warningWords">@重邮学生：关注重邮小帮手微信（cyxbswx），并绑定学号后才能查看哦～</p>
+                </div>
+            </div>
             <p class="copyright">©️红岩网校工作站</p>
         </div>
         <div data-role="page" id="classListPage">
@@ -266,69 +273,62 @@
                     <p class="rank">我的排名：第 <span class="ranknum"></span> 名</p>
                     <img src="./Public/images/returnBtn.png" alt="" class="returnBtn">
                     <div class="listNav" style="background: #feebcb">
-                        <p class="college">学院</p>
-                        <p class="classes">班级</p>
+                        <p class="colleges">学院</p>
+                        <p class="classes_1">班级</p>
                         <p class="classRank">排名</p>
                     </div>
                     <ul class="list_ranks">
                         <li>
-                            <span class="college">计算机学院</span>
-                            <span class="classes">13901602</span>
+                            <p class="college">计算机学院</p>
+                            <p class="classes">13901602</p>
                             <img src="./Public/images/gold.png" alt="" class="medal">
                         </li>
                         <li style="background: #feebcb">
-                            <span class="college"></span>
-                            <span class="classes"></span>
+                            <p class="college"></p>
+                            <p class="classes"></p>
                             <img src="./Public/images/silver.png" alt="" class="medal">
                         </li>
                         <li>
-                           <span class="college"></span>
-                            <span class="classes"></span>
+                            <p class="college"></p>
+                            <p class="classes"></p>
                             <img src="./Public/images/copper.png" alt="" class="medal">
                         </li>
                         <li style="background: #feebcb">
-                           <span class="college"></span>
-                            <span class="classes"></span>
-                            <span class="classRank"></span>
+                            <p class="college"></p>
+                            <p class="classes"></p>
+                            <p class="classRank">4</p>
                         </li>
                         <li>
-                           <span class="college"></span>
-                            <span class="classes"></span>
-                            <span class="classRank"></span>
+                            <p class="college"></p>
+                            <p class="classes"></p>
+                            <p class="classRank">5</p>
                         </li>
                         <li style="background: #feebcb">
-                           <span class="college"></span>
-                            <span class="classes"></span>
-                            <span class="classRank"></span>
+                            <p class="college"></p>
+                            <p class="classes"></p>
+                            <p class="classRank">6</p>
                         </li>
                         <li>
-                           <span class="college"></span>
-                            <span class="classes"></span>
-                            <span class="classRank"></span>
+                            <p class="college"></p>
+                            <p class="classes"></p>
+                            <p class="classRank">7</p>
                         </li>
                         <li style="background: #feebcb">
-                           <span class="college"></span>
-                            <span class="classes"></span>
-                            <span class="classRank"></span>
+                            <p class="college"></p>
+                            <p class="classes"></p>
+                            <p class="classRank">8</p>
                         </li>
                         <li>
-                           <span class="college"></span>
-                            <span class="classes"></span>
-                            <span class="classRank"></span>
+                            <p class="college"></p>
+                            <p class="classes"></p>
+                            <p class="classRank">9</p>
                         </li>
                         <li style="background: #feebcb">
-                           <span class="college"></span>
-                            <span class="classes"></span>
-                            <span class="classRank"></span>
+                            <p class="college"></p>
+                            <p class="classes"></p>
+                            <p class="classRank">10</p>
                         </li>
                     </ul>
-                </div>
-            </div>
-            <div id="warning">
-                <div id="warningbox">
-                    <img class="closeBtn" src="./Public/images/closeBtn.png">
-                    <img class="warning_img" src="./Public/images/warning_img.png">
-                    <p class="warningWords">@重邮学生：关注重邮小帮手微信（cyxbswx），并绑定学号后才能查看哦～</p>
                 </div>
             </div>
             <p class="copyright">©️红岩网校工作站</p>

@@ -22,13 +22,13 @@ $(function () {
     var user_avatar = $('.user_avatar');
     var ranks = $('.list_rank');
     var top3 = ranks.find('li');
-    var classRanks = ('list_ranks');
-    var warningPage=$('warning');
-    var warningWords=$('warningWords');
+    var classRanks = $('.list_ranks');
+    var warningPage=$('#warning');
+    var warningWords=$('.warningWords');
     var warning = $('.overwarning');
-    var college = $("college");
-    var classes = $("classes");
-    var classRank =$("classRank");
+    var college = $(".college");
+    var classes = $(".classes");
+    var classRank =$(".classRank");
     var warning = $('.overwarning');
     var ps = warning.find('p');
     var select_wrong = $('.select_wrong');
@@ -145,32 +145,58 @@ $(function () {
         // $.mobile.loading('show');
         function GetData() {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "", true); //用ajax 发送get请求
+            xhr.open("GET", "http://localhost/19thCourse/index.php/home/index/stustatus", true); //用ajax 发送get请求
             xhr.onreadystatechange = function() {
-            if (xhr.status == 400) {
-                warningPage.style.display="block";
-            }
-            if (xhr.status == 300) {
-                warningWords.innerHTML="对不起，此功能仅供本科生开放"
-                warningPage.style.display="block";
-            }
-            $('.classRankBtn').on('click',function(){
-            warningPage.style.display="none";
-    });
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                arr = JSON.parse(xhr.responseText);
-                for (let i = 0; i < 10; i++) {
-                    college[i].innerHTML = arr[i].college;
-                    classes[i].innerHTML = arr[i].classes;
-                    classRank[i].innerHTML = arr[i].classRank;
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var resData = JSON.parse(xhr.responseText);
+                    console.log(resData)
+                    if (resData.status == 400) {
+                        warningPage.css('display', "block");
+                        $('.closeBtn').on('click',function(){
+                            warningPage.css('display', "none");
+                        });
+
+                        return 0;
+                    }
+                    if (resData.status == 300) {
+                        warningWords.html("对不起，此功能仅供本科生开放");
+                        warningPage.css('display', "block");
+                        $('.closeBtn').on('click',function(){
+                            warningPage.css('display', "none");
+                        });
+
+                        return 0;
+                    }
+
+                    // arr = JSON.parse(xhr.responseText);
+                    var xhra = new XMLHttpRequest();
+                    xhra.open("GET", "http://localhost/19thCourse/index.php/home/index/claRank", true); //用ajax 发送get请求arr = xhra.responseText;
+                    xhra.send(null);
+                    xhra.onreadystatechange = function() {
+                        if (xhra.readyState == 4 && xhra.status == 200) {
+                            arr =  JSON.parse(xhra.responseText);
+                            console.log(arr);
+                            try {
+                                for (var i = 0; i < 10; i++) {
+                                    college[i].innerHTML = String(arr[i].college);
+                                    //console.log(college[i].innerHTML);
+                                    classes[i].innerHTML = String(arr[i].classes);
+                                }
+                                $.mobile.changePage('#classListPage', {
+                                    transition: 'flow'
+                                });
+                            }catch (err) {
+                                $.mobile.changePage('#classListPage', {
+                                    transition: 'flow'
+                                });
+                            }
+                        }
+                    }
                 }
-                $.mobile.changePage('#classListPage',{
-                    transition: 'flow'
-                });
-            }
             }
             xhr.send(null);
         };
+        GetData();
     });
         //     if (data.status == 300) {}
         //     if(data.status == 200){
@@ -187,7 +213,7 @@ $(function () {
         // _data.to = 50;
         // $.post(rank_link,_data,function(data){
         //     $.mobile.loading('hide');
-        //     if(data.status == 200){
+        //     if(data.status == 200)
         //         for(var i = 0 ; i < data.data.length ; i++){
         //             top10.eq(i).find('.college').html(data.data[i].college);
         //             top10.eq(i).find('.classes').html(data.data[i].classes);
@@ -203,25 +229,13 @@ $(function () {
     //     };
     // });
 
-    
+
     $('.returnBtn').on('click',function(){
         $.mobile.loading('show');
-        var _data = {};
-        _data.lession_id = 77;
-        $.post(question_link,_data,function(data){
-            $.mobile.loading('hide');
-            // if(data.status == 200){
-            //     aCourseNum.css('background-color','#39f07e');
-            // }else if(data.status == 405){
-            //     for(var i = 0 ; i < data.data ; i++){
-            //         aCourseNum.eq(i).css('background-color','#39f07e');
-            //     }
-            // }
             $.mobile.changePage('#beginPage',{
                 transition:'flow'
             });
         });
-    });
 
     myStudyBtn.on('click',function(){
         $.mobile.loading('show');

@@ -1,12 +1,14 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+use Think\Model;
+
 class BaseController extends Controller {
     public function _initialize(){
         header('Access-Control-Allow-Origin: *');
         if (APP_DEBUG) {
-            $openid = 'ouRCyjhdsj8RQofIOPHc7nX9hA983';//session('openid');//
-            $nickname = '知识混子周政3';// session('nickname'); //
+            $openid = 'ouRCyjpYbjwuHt2n7CjpOPnh0Sp2c';//session('openid');//
+            $nickname = '2123';// session('nickname'); //
         } else {
             $openid = session('openid');//
             $nickname = session('nickname'); //
@@ -22,7 +24,19 @@ class BaseController extends Controller {
         session('openid', $openid);
         session('nickname', $nickname);
         $users = M('users');
+        $res = $this->stuInfo();
         $num = $users->where(array('openid' => $openid))->count();
+        if ($res['status'] == 200) {
+            $usernumber = $res['data']['usernumber'];
+            $colleges = M('colleges');
+            $row = $colleges->query("select class , college from colleges where stuid = '$usernumber'");
+            $college = ($row[0]['college'] != NULL ? $row[0]['college'] :NULL);
+            $class = ($row[0]['class'] != NULL ? $row[0]['class']: NULL);
+        } else {
+           $usernumber = NULL;
+           $class = NULL;
+           $college = NULL;
+        }
         if ($num == 0) {
             $data = array(
                 'openid' => $openid,
@@ -30,7 +44,10 @@ class BaseController extends Controller {
                 'days'   => 0,
                 'count'  => 0,
                 'imgurl' => urldecode(I('get.headimgurl')),
-                'score'  => 0
+                'score'  => 0,
+                'usernumber' => $usernumber,
+                'class' => $class,
+                'college' => $college
             );
             $users->add($data);
             $userCurrent = M('user_current_question');
@@ -38,17 +55,45 @@ class BaseController extends Controller {
                 'openid' => $openid,
                 'current' => 0,
                 'today_group_count' => 0,
-                'today_learn_id' => json_encode(array()),
+                'today_learn_id' => json_encode(array()),//2
                 'date' => date('Y-m-d', time()),
             );
             $userCurrent->add($currentData);
         } else {
             $img = I('get.headimgurl');
-            if ($nickname && $img) {
+            if ($nickname) {
                 $data['nickname'] = $nickname;
                 $data['imgurl'] = urldecode($img);
+                $data['usernumber'] =  $usernumber;
+                $data['class'] =  $class;
+                $data['college'] = $college;
                 $users->where(array('openid' => $openid))->save($data);
             }
         }
     }
+    /*curl通用函数*/
+    protected function curl_api($url, $data=''){
+        // 初始化一个curl对象
+        $ch = curl_init();
+        curl_setopt ( $ch, CURLOPT_URL, $url );
+        curl_setopt ( $ch, CURLOPT_POST, 1 );
+        curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+        // 运行curl，获取网页。
+        $contents = json_decode(curl_exec($ch), true);
+        // 关闭请求
+        curl_close($ch);
+        return $contents;
+    }
+
+    /*从接口获取学生信息*/
+    protected function stuInfo() {
+        $openid = session('openid');
+        $url = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/UserCenter/UserCenter/getStuInfoByOpenId&openId=".$openid;
+        $res =  $this->curl_api($url);
+        return $res;
+    }
+
+
 }
