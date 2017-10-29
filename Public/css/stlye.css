@@ -79,7 +79,8 @@ body {
 #backPage,
 #gamePage,
 #overPage,
-#listPage {
+#listPage,
+#classListPage {
   position: relative;
   background: url("../images/startPage_back.jpg") center no-repeat;
   background-size: 100% 100%;
@@ -88,8 +89,9 @@ body {
 #backPage .copyright,
 #gamePage .copyright,
 #overPage .copyright,
-#listPage .copyright {
-  color: #ffb31a;
+#listPage .copyright,
+#classListPage .copyright {
+  color: #ffb31a; 
   font-size: 10px;
   text-align: center;
   width: 100%;
@@ -451,9 +453,18 @@ body {
 }
 #listPage .list_container .rank_list .studyBtn {
   display: block;
-  margin: 3% auto;
+  margin: 5% 10%;
   width: 29.167%;
+  float: left;
 }
+
+#listPage .list_container .rank_list .classRankBtn {
+  display: block;
+  margin: 5% 10%;
+  width: 29.167%;
+  float: right;
+}
+
 #listPage .list_container .rank_list .list_rank {
   list-style: none;
   width: 100%;
@@ -489,6 +500,202 @@ body {
   width: 12.5%;
   margin-top: 1%;
 }
+
+#classListPage {
+  background: linear-gradient(#a3e5e2, #faf4d4);
+  position: relative;
+  z-index: 888;
+}
+#classListPage .copyright {
+  float: left;
+}
+#classListPage .load_more {
+  width: 100%;
+  text-align: center;
+  color: #cccccc;
+  padding: 5% 0;
+  background: #ffffff;
+}
+#classListPage .list_container {
+  width: 100%;
+  position: relative;
+}
+#classListPage .list_container .partLog {
+  width: 64.67%;
+  position: relative;
+  left: -14%;
+  top: 0;
+  z-index: 88;
+}
+#classListPage .list_container .rank_list {
+  width: 84.5%;
+  margin: 0 auto;
+  margin-top: -15%;
+  border: 10px solid #5dc2f0;
+  border-bottom: 30px solid #5dc2f0;
+  border-radius: 10px;
+  box-shadow: 3px 2px 0 #d7e4cc;
+  background: #fcf8e8;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+#classListPage .list_container .rank_list .user_avatar {
+  width: 23.3%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15%;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+#classListPage .list_container .rank_list .nickname {
+  color: #fcb103;
+  text-align: center;
+  margin-top: 1.2%;
+  margin-bottom: 3%;
+}
+
+#classListPage .list_container .listNav {
+  text-align: center;
+  width: 90%;
+  overflow: hidden;
+  padding: 3% 5%;
+  margin-top: 8%;
+}
+
+#classListPage .list_container .listNav p{
+  display: block;
+  font-family: tx;
+  font-size: 18px;
+  color: #fc932b;
+  text-shadow:2px 2px white ;
+
+}
+
+#classListPage .list_container .listNav .college{
+  float: left;
+}
+
+#classListPage .list_container .listNav .classes{
+  display: initial;
+}
+
+#classListPage .list_container .listNav .classRank{
+  float: right;
+}
+
+#classListPage .list_container .list_ranks .college{
+  float: left;
+}
+
+#classListPage .list_container .list_ranks  .classes{
+  display: initial;
+}
+
+#classListPage .list_container .list_ranks  .classRank{
+  float: right;
+}
+
+
+
+#classListPage .list_container .rank_list .rank {
+  text-align: center;
+  color: #e87d60;
+  font-family: tx;
+}
+#classListPage .list_container .rank_list .rank .ranknum {
+  font-family: tx;
+  color: #53ccc1;
+}
+#classListPage .list_container .rank_list .returnBtn {
+  display: block;
+  margin: 3% auto;
+  width: 29.167%;
+}
+#classListPage .list_container .rank_list .list_ranks {
+  list-style: none;
+  width: 100%;
+}
+
+#classListPage .list_container .rank_list .list_ranks span{
+  color: #eb6b0a;
+  font-size: 12px;
+  text-align: center;
+  line-height: initial;
+}
+#classListPage .list_container .rank_list .list_ranks li {
+  width: 90%;
+  overflow: hidden;
+  padding: 3% 5%;
+  text-align: center;
+}
+
+#classListPage .list_container .rank_list .list_ranks li .list_ranknum {
+  font-family: tx;
+  font-size: 14px;
+  float: right;
+  margin-right: 4.5%;
+  padding: 2% 0;
+  color: #fc932b;
+}
+#classListPage .list_container .rank_list .list_ranks li .medal {
+  float: right;
+  width: 12.5%;
+  margin-top: 1%;
+}
+
+#classListPage #warning {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+  background-color: rgba(112, 138, 125, 0.5);
+  top: 0;
+
+}
+
+#classListPage .closeBtn {
+  float: right;
+  width: 10%;
+  margin-top: 18%;
+  margin-right: 5%;
+}
+
+#classListPage .warning_img{
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 20%;
+}
+
+#classListPage #warningbox {
+  background: url("../images/warningbox.png") center no-repeat;
+  position:absolute;
+  margin-left: -40%;
+    margin-top: -45%;
+    width: 80%;
+    height: 45%;
+    background-size: 100%;
+    left: 50%;
+    top: 50%;
+    /*top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;*/
+}
+
+#classListPage .warningWords {
+  font-size: 18px;
+    width: 90%;
+    margin-left: 6.5%;
+    color: #faa180;
+    letter-spacing: 2px;
+    margin-top: 3%;
+   font-family: tx;
+}
+
+#classListPage 
+
 @media (max-width: 330px) {
   #backPage .background_content {
     font-size: 9px;

@@ -22,6 +22,13 @@ $(function () {
     var user_avatar = $('.user_avatar');
     var ranks = $('.list_rank');
     var top3 = ranks.find('li');
+    var classRanks = ('list_ranks');
+    var warningPage=$('warning');
+    var warningWords=$('warningWords');
+    var warning = $('.overwarning');
+    var college = $("college");
+    var classes = $("classes");
+    var classRank =$("classRank");
     var warning = $('.overwarning');
     var ps = warning.find('p');
     var select_wrong = $('.select_wrong');
@@ -36,6 +43,7 @@ $(function () {
     var startPos = 0;
     var courseNum = $('.courseNum');
     var over_flag = 0;
+    var arr = new Array();
     content_box[0].addEventListener('touchstart',function(e){
         e.preventDefault();
         var touch = e.touches[0];
@@ -131,6 +139,90 @@ $(function () {
             });
         });
     });
+
+    // var link_ranks = "http://localhost/19thCourse/index.php/home/index/test";
+    $('.classRankBtn').on('click',function(){
+        // $.mobile.loading('show');
+        function GetData() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "", true); //用ajax 发送get请求
+            xhr.onreadystatechange = function() {
+            if (xhr.status == 400) {
+                warningPage.style.display="block";
+            }
+            if (xhr.status == 300) {
+                warningWords.innerHTML="对不起，此功能仅供本科生开放"
+                warningPage.style.display="block";
+            }
+            $('.classRankBtn').on('click',function(){
+            warningPage.style.display="none";
+    });
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                arr = JSON.parse(xhr.responseText);
+                for (let i = 0; i < 10; i++) {
+                    college[i].innerHTML = arr[i].college;
+                    classes[i].innerHTML = arr[i].classes;
+                    classRank[i].innerHTML = arr[i].classRank;
+                }
+                $.mobile.changePage('#classListPage',{
+                    transition: 'flow'
+                });
+            }
+            }
+            xhr.send(null);
+        };
+    });
+        //     if (data.status == 300) {}
+        //     if(data.status == 200){
+        //         $.mobile.loading('hide');
+        //         college.html(data.data.college);
+        //         classes.html(data.data.classes);
+        //         classRank.html(data.data.classRank);
+        //     }else{
+        //         alert(data.info);
+        //     }
+        // });
+        // var _data = {};
+        // _data.from = 1;
+        // _data.to = 50;
+        // $.post(rank_link,_data,function(data){
+        //     $.mobile.loading('hide');
+        //     if(data.status == 200){
+        //         for(var i = 0 ; i < data.data.length ; i++){
+        //             top10.eq(i).find('.college').html(data.data[i].college);
+        //             top10.eq(i).find('.classes').html(data.data[i].classes);
+        //             top10.eq(i).find('.classRank').html(data.data[i].classRank);
+        //         }
+                // $.mobile.changePage('#classListPage',{
+                //     transition: 'flow'
+                // });
+            // }else {
+            //     alert(data.status);
+            // }
+    //     }
+    //     };
+    // });
+
+    
+    $('.returnBtn').on('click',function(){
+        $.mobile.loading('show');
+        var _data = {};
+        _data.lession_id = 77;
+        $.post(question_link,_data,function(data){
+            $.mobile.loading('hide');
+            // if(data.status == 200){
+            //     aCourseNum.css('background-color','#39f07e');
+            // }else if(data.status == 405){
+            //     for(var i = 0 ; i < data.data ; i++){
+            //         aCourseNum.eq(i).css('background-color','#39f07e');
+            //     }
+            // }
+            $.mobile.changePage('#beginPage',{
+                transition:'flow'
+            });
+        });
+    });
+
     myStudyBtn.on('click',function(){
         $.mobile.loading('show');
         $.post(link_rank,"",function(data){

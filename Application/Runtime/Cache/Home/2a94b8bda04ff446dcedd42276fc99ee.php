@@ -1,4 +1,4 @@
-<!doctype html>
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
 <html lang="zh-CN">
     <head>
         <title>团团微课学报告</title>
@@ -9,11 +9,11 @@
         <link rel="stylesheet" href="./Public/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
         <script src = './Public/js/jquery-2.1.4.min.js'></script>
         <script src = './Public/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js'></script>
-        <script src = './Public/js/pageChange.js?v={:time()}'></script>
-        <script src = './Public/js/main.js?v={:time()}'></script>
-        <script src = "./Public/js/styleSet.js?v={:time()}"></script>
-        <link rel="stylesheet" href="./Public/css/stlye.css?v={:time()}">
-        <link rel="stylesheet" href="./Public/css/animate.min.css?v={:time()}">
+        <script src = './Public/js/pageChange.js?v=<?php echo time();?>'></script>
+        <script src = './Public/js/main.js?v=<?php echo time();?>'></script>
+        <script src = "./Public/js/styleSet.js?v=<?php echo time();?>"></script>
+        <link rel="stylesheet" href="./Public/css/stlye.css?v=<?php echo time();?>">
+        <link rel="stylesheet" href="./Public/css/animate.min.css?v=<?php echo time();?>">
     </head>
     <body>
         <div data-role="page" id="mask">
@@ -336,15 +336,15 @@
         <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
         <script>
             var shareTitle = '团团打卡 学讲话';
-            var shareDesc = "{$share}";
+            var shareDesc = "<?php echo ($share); ?>";
             var shareURL = "https://redrock.cqupt.edu.cn/praise_xi_shanbei/";
             var shareImg = "https://redrock.cqupt.edu.cn/praise_xi_shanbei/Public/images/tuanshare.png";
             wx.config({
                 debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                 appId: 'wx81a4a4b77ec98ff4', // 必填，公众号的唯一标识
-                timestamp: "{$signature['timestamp']}", // 必填，生成签名的时间戳
-                nonceStr: "{$signature['noncestr']}", // 必填，生成签名的随机串
-                signature: "{$signature['signature']}",// 必填，签名，见附录1
+                timestamp: "<?php echo ($signature['timestamp']); ?>", // 必填，生成签名的时间戳
+                nonceStr: "<?php echo ($signature['noncestr']); ?>", // 必填，生成签名的随机串
+                signature: "<?php echo ($signature['signature']); ?>",// 必填，签名，见附录1
                 jsApiList: [
                     'onMenuShareTimeline',
                     'onMenuShareAppMessage',
