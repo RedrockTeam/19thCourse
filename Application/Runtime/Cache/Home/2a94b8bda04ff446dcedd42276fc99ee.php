@@ -333,7 +333,34 @@
             </div>
             <p class="copyright">©️红岩网校工作站</p>
         </div>
-        <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script src="https://wx.idsbllp.cn/wx-api/share.js"></script>
+        <script>
+            WXSHARE.config({debug: false});
+            WXSHARE.ready(function() {
+                var option = {
+                      title: "您是0位进入的",
+                      link: "https://wx.idsbllp.cn/game/19thCourse/index.php#startPage",
+                      imgUrl: 'https://wx.idsbllp.cn/game/19thCourse/Public/images/beginXi.png',
+                      desc: '修德 博学 求实 创新',
+                      type: '',
+                      success: function() {
+                          console.log('分享成功');
+                      },
+                      cancel: function() {
+                          console.log('取消分享');
+                      },
+                  };
+
+                  wx.onMenuShareTimeline(option);
+                  wx.onMenuShareAppMessage(option);
+                  wx.onMenuShareQQ(option);
+                  wx.onMenuShareWeibo(option);
+                  wx.onMenuShareQZone(option);
+            });
+
+            </script>
+<!--         <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
         <script>
             var shareTitle = '团团打卡 学讲话';
             var shareDesc = "<?php echo ($share); ?>";
@@ -407,7 +434,7 @@
                 });
             }
             initShare(shareTitle, shareDesc, shareURL, shareImg);
-        </script>
+        </script> -->
 
     </body>
 </html>

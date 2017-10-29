@@ -9981,3 +9981,166 @@ SQL: UPDATE `users` SET `nickname`='闪闪的红星',`imgurl`='',`usernumber`='2
 SQL: SELECT * FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0000s ]
 SQL: select classes, college from (select sum(score) as sums, class as classes, college from users where class is not null group by class, college) as temp order by sums desc [ RunTime:0.0190s ]
 
+[ 2017-10-29T20:44:23+08:00 ] ::1 /19thCourse/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `colleges` [ RunTime:0.0070s ]
+SQL: select class , college from colleges where stuid = '2014214160' [ RunTime:0.0000s ]
+SQL: UPDATE `users` SET `nickname`='闪闪的红星',`imgurl`='',`usernumber`='2014214160',`class`='1391401',`college`='软件学院' WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' [ RunTime:0.0970s ]
+SQL: SHOW COLUMNS FROM `user_current_question` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `user_current_question` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: signature E:\phpstudy\PHPTutorial\WWW\19thCourse\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 372 行.
+NOTIC: [8] Undefined variable: signature E:\phpstudy\PHPTutorial\WWW\19thCourse\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 373 行.
+NOTIC: [8] Undefined variable: signature E:\phpstudy\PHPTutorial\WWW\19thCourse\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 374 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-10-29T20:46:09+08:00 ] ::1 /19thCourse/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0100s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `colleges` [ RunTime:0.0070s ]
+SQL: select class , college from colleges where stuid = '2014214160' [ RunTime:0.0010s ]
+SQL: UPDATE `users` SET `nickname`='闪闪的红星',`imgurl`='',`usernumber`='2014214160',`class`='1391401',`college`='软件学院' WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' [ RunTime:0.0530s ]
+SQL: SHOW COLUMNS FROM `user_current_question` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `user_current_question` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: signature E:\phpstudy\PHPTutorial\WWW\19thCourse\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 372 行.
+NOTIC: [8] Undefined variable: signature E:\phpstudy\PHPTutorial\WWW\19thCourse\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 373 行.
+NOTIC: [8] Undefined variable: signature E:\phpstudy\PHPTutorial\WWW\19thCourse\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 374 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-10-29T20:46:22+08:00 ] ::1 /19thCourse/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0100s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `colleges` [ RunTime:0.0070s ]
+SQL: select class , college from colleges where stuid = '2014214160' [ RunTime:0.0010s ]
+SQL: UPDATE `users` SET `nickname`='闪闪的红星',`imgurl`='',`usernumber`='2014214160',`class`='1391401',`college`='软件学院' WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' [ RunTime:0.0720s ]
+SQL: SHOW COLUMNS FROM `user_current_question` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `user_current_question` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined variable: signature E:\phpstudy\PHPTutorial\WWW\19thCourse\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 372 行.
+NOTIC: [8] Undefined variable: signature E:\phpstudy\PHPTutorial\WWW\19thCourse\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 373 行.
+NOTIC: [8] Undefined variable: signature E:\phpstudy\PHPTutorial\WWW\19thCourse\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 374 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-10-29T20:46:34+08:00 ] ::1 /19thCourse/index.php/Home/Index/rank
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `colleges` [ RunTime:0.0040s ]
+SQL: select class , college from colleges where stuid = '2014214160' [ RunTime:0.0000s ]
+SQL: UPDATE `users` SET `nickname`='闪闪的红星',`imgurl`='',`usernumber`='2014214160',`class`='1391401',`college`='软件学院' WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' [ RunTime:0.1050s ]
+SQL: SELECT * FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0010s ]
+SQL: select * from (select *, (@rank := @rank + 1)rank from (select openid from users order by score desc, costtime asc)t, (select @rank := 0)a)b WHERE openid='ouRCyjpsCjN1luOFckV6tZKpPRM4' [ RunTime:0.0010s ]
+
+[ 2017-10-29T20:46:36+08:00 ] ::1 /19thCourse/index.php/Home/Index/morerank
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `colleges` [ RunTime:0.0050s ]
+SQL: select class , college from colleges where stuid = '2014214160' [ RunTime:0.0010s ]
+SQL: UPDATE `users` SET `nickname`='闪闪的红星',`imgurl`='',`usernumber`='2014214160',`class`='1391401',`college`='软件学院' WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' [ RunTime:0.0710s ]
+SQL: SELECT `nickname`,`imgurl`,`score` FROM `users` ORDER BY score desc, costtime asc LIMIT 0,50   [ RunTime:0.0010s ]
+
+[ 2017-10-29T20:46:41+08:00 ] ::1 /19thCourse/index.php/home/index/stustatus
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `colleges` [ RunTime:0.0070s ]
+SQL: select class , college from colleges where stuid = '2014214160' [ RunTime:0.0010s ]
+SQL: UPDATE `users` SET `nickname`='闪闪的红星',`imgurl`='',`usernumber`='2014214160',`class`='1391401',`college`='软件学院' WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' [ RunTime:0.0800s ]
+SQL: SELECT * FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2017-10-29T20:46:43+08:00 ] ::1 /19thCourse/index.php/home/index/claRank
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `colleges` [ RunTime:0.0080s ]
+SQL: select class , college from colleges where stuid = '2014214160' [ RunTime:0.0010s ]
+SQL: UPDATE `users` SET `nickname`='闪闪的红星',`imgurl`='',`usernumber`='2014214160',`class`='1391401',`college`='软件学院' WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' [ RunTime:0.0770s ]
+SQL: SELECT * FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0000s ]
+SQL: select classes, college from (select sum(score) as sums, class as classes, college from users where class is not null group by class, college) as temp order by sums desc [ RunTime:0.0080s ]
+
+[ 2017-10-29T20:47:00+08:00 ] ::1 /19thCourse/index.php/home/index/claRank
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `colleges` [ RunTime:0.0080s ]
+SQL: select class , college from colleges where stuid = '2014214160' [ RunTime:0.0010s ]
+SQL: UPDATE `users` SET `nickname`='闪闪的红星',`imgurl`='',`usernumber`='2014214160',`class`='1391401',`college`='软件学院' WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' [ RunTime:0.0810s ]
+SQL: SELECT * FROM `users` WHERE `openid` = 'ouRCyjpsCjN1luOFckV6tZKpPRM4' LIMIT 1   [ RunTime:0.0010s ]
+SQL: select classes, college from (select sum(score) as sums, class as classes, college from users where class is not null group by class, college) as temp order by sums desc [ RunTime:0.0060s ]
+
