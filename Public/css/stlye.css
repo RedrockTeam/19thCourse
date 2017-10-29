@@ -579,7 +579,7 @@ body {
   display: initial;
 }
 
-#classListPage .list_container .listNav .classRank{
+#classListPage .list_container .listNav .classRankss{
   float: right;
 }
 
@@ -597,8 +597,6 @@ body {
   font-size: 14px;
   margin-right: 4.5%;
 }
-
-
 
 #classListPage .list_container .rank_list .rank {
   text-align: center;

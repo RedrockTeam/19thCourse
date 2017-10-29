@@ -177,10 +177,11 @@ $(function () {
                             arr =  JSON.parse(xhra.responseText);
                             console.log(arr);
                             try {
-                                for (var i = 0; i < 10; i++) {
+                                for (var i = 0; i < arr.length; i++) {
                                     college[i].innerHTML = String(arr[i].college);
                                     //console.log(college[i].innerHTML);
                                     classes[i].innerHTML = String(arr[i].classes);
+                                    if(i>2){classRank[i-3].innerHTML=i+1;}
                                 }
                                 $.mobile.changePage('#classListPage', {
                                     transition: 'flow'
@@ -198,36 +199,7 @@ $(function () {
         };
         GetData();
     });
-        //     if (data.status == 300) {}
-        //     if(data.status == 200){
-        //         $.mobile.loading('hide');
-        //         college.html(data.data.college);
-        //         classes.html(data.data.classes);
-        //         classRank.html(data.data.classRank);
-        //     }else{
-        //         alert(data.info);
-        //     }
-        // });
-        // var _data = {};
-        // _data.from = 1;
-        // _data.to = 50;
-        // $.post(rank_link,_data,function(data){
-        //     $.mobile.loading('hide');
-        //     if(data.status == 200)
-        //         for(var i = 0 ; i < data.data.length ; i++){
-        //             top10.eq(i).find('.college').html(data.data[i].college);
-        //             top10.eq(i).find('.classes').html(data.data[i].classes);
-        //             top10.eq(i).find('.classRank').html(data.data[i].classRank);
-        //         }
-                // $.mobile.changePage('#classListPage',{
-                //     transition: 'flow'
-                // });
-            // }else {
-            //     alert(data.status);
-            // }
-    //     }
-    //     };
-    // });
+
 
 
     $('.returnBtn').on('click',function(){
