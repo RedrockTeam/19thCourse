@@ -43,6 +43,7 @@ $(function () {
     var startPos = 0;
     var courseNum = $('.courseNum');
     var over_flag = 0;
+    var stunumber=$('.stunumber');
     var arr = new Array();
     content_box[0].addEventListener('touchstart',function(e){
         e.preventDefault();
@@ -149,7 +150,7 @@ $(function () {
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var resData = JSON.parse(xhr.responseText);
-                    console.log(resData)
+                    //console.log(resData)
                     if (resData.status == 400) {
                         warningPage.css('display', "block");
                         $('.closeBtn').on('click',function(){
@@ -175,7 +176,9 @@ $(function () {
                     xhra.onreadystatechange = function() {
                         if (xhra.readyState == 4 && xhra.status == 200) {
                             arr =  JSON.parse(xhra.responseText);
-                            console.log(arr);
+                            stunumber.html(arr.stunumber);
+                            arr = arr.data;
+                            //console.log(arr.data[0].classes);
                             try {
                                 for (var i = 0; i < arr.length; i++) {
                                     college[i].innerHTML = String(arr[i].college);

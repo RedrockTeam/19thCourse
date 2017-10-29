@@ -192,13 +192,25 @@ class IndexController extends BaseController {
     }
     //班级排名
     public function claRank() {
-	try {    
+        $i = 0;
         $model = M('users');
-	$row = $model->query("select classes, college from (select sum(score) as sums, class as classes, college from users where class is not null group by class, college) as temp order by sums desc limit 0, 10");
-	} catch(\Exception $e) {
-		echo $e->getMessage();
-	}
-        $this->ajaxReturn($row);
+        $openid = session('openid');
+        $user = $model->where(array('openid' => $openid))->find();
+	    $row = $model->query("select classes, college from (select sum(score) as sums, class as classes, college from users where class is not null group by class, college) as temp order by sums desc");
+	    for ( $i ; $i < count($row) ; $i++) {
+            if ($user['class'] == $row[$i]['classes']) {
+                $res = $i + 1;
+                break;
+            }
+        }
+        if ($i === count($row) - 1) {
+            $res = '∞';
+        }
+	    $this->ajaxReturn(array(
+            'status' => 200,
+            'stunumber' => $res,
+            'data' =>   $row
+        ));
     }
 
     public function moreRank() {

@@ -584,6 +584,7 @@ body {
 }
 
 #classListPage .list_container .list_ranks .college{
+  width: 44%;
   float: left;
 }
 
@@ -620,14 +621,12 @@ body {
 #classListPage .list_container .rank_list .list_ranks p{
   color: #eb6b0a;
   font-size: 12px;
-  text-align: center;
   line-height: initial;
 }
 #classListPage .list_container .rank_list .list_ranks li {
   width: 90%;
   overflow: hidden;
   padding: 3% 5%;
-  text-align: center;
 }
 
 #classListPage .list_container .rank_list .list_ranks li .list_ranknum {
